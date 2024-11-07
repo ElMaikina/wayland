@@ -24,11 +24,15 @@ static int log_level = WLR_ERROR;
 static const char *const autostart[] = {
         //"wbg", "/path/to/your/image", NULL,
 		// multi-monitor setup
+		"wlr-randr", "--output", "DP-1", "--on", "--mode", "1920x1080@120", "--pos", "1366,0",  NULL, // fallback if other monitors are not detected
 		"wlr-randr", "--output", "DP-1", "--on", "--mode", "1920x1080@120", "--pos", "1366,0", "--output", "HDMI-A-1", "--on", "--mode", "1366x768", "--pos", "0,598", "--output", "DP-2", "--on", "--mode", "1366x768", "--pos", "3286,0", "--transform", "270", NULL,
 		// define middle monitor as main for gaming
+		"xrandr", "--output", "DP-1", "--primary",  "--on", "--mode", "1920x1080@120", "--pos", "1366,0",  NULL, // fallback if other monitors are not detected
 		"xrandr", "--output", "DP-1", "--primary",  "--on", "--mode", "1920x1080@120", "--pos", "1366,0", "--output", "HDMI-A-1", "--on", "--mode", "1366x768", "--pos", "0,598", "--output", "DP-2", "--on", "--mode", "1366x768", "--pos", "3286,0", "--transform", "270", NULL,
 		// wallpaper command
-		"swaybg", "-i", "/home/elmaikina/Pictures/calculus.png", "-m", "fill", NULL,
+		"swaybg", "-i", "/home/elmaikina/Pictures/fridge.jpg", "-m", "fill", NULL,
+		// desktop protocol for screen capture
+		"/usr/lib/xdg-desktop-portal-wlr", NULL,
 		// status bar left
         //"somebar", NULL,
 		// status bar right
